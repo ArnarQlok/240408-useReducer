@@ -21,6 +21,13 @@ const reducer = (state, action) => {
   }
 };
 
+// const initialState = {
+//   count: 0,
+//   error: null,
+//   userInput: "",
+//   color: false,
+// };
+
 function App() {
   const [state, dispatch] = useReducer(reducer, {
     count: 0,
