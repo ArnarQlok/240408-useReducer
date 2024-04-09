@@ -3,7 +3,13 @@ import { useReducer } from "react";
 const reducer = (state, action) => {
   switch (action.type) {
     case "increment":
-      return { ...state, count: state.count + 1 };
+      const newCount = state.count + 1;
+      const hasError = newCount > 5;
+      return {
+        ...state,
+        count: hasError ? state.count : newCount,
+        error: hasError ? "Maximum reached" : null,
+      };
     case "decrement":
       return { ...state, count: state.count - 1 };
     case "newUserInput":
@@ -18,6 +24,7 @@ const reducer = (state, action) => {
 function App() {
   const [state, dispatch] = useReducer(reducer, {
     count: 0,
+    error: null,
     userInput: "",
     color: false,
   });
@@ -33,6 +40,7 @@ function App() {
       />
       <br />
       <br />
+      {state.error && <p>{state.error}</p>}
       <p>{state.count}</p>
       <section>
         <button onClick={() => dispatch({ type: "decrement" })}>-</button>

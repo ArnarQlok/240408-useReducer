@@ -1,11 +1,3 @@
-/* 
-
-1. Ha all kod skriven från början.
-Starta med att visa appen med State först (SKRIV IN DETTA SOM START I LEKTIONENS KOD)
-
-
-*/
-
 import { useState } from "react";
 
 export default function StateSolution() {
